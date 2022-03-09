@@ -1,4 +1,4 @@
-package com.skku.mobilepractice.activity;
+package edu.skku.MAP.MyFirstSWPLab3.activity;
 
 import android.widget.Toast;
 

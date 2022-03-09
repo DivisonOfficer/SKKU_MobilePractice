@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context="edu.skku.MAP.MyFirstSWPLab3.activity.MainActivity">
     <!-- Will be desecrated and replaced by DataBinding-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,22 +14,23 @@
 
 
         <TextView
+            android:id="@+id/textview_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="@string/student_id"
-            app:layout_constraintBottom_toTopOf="@+id/bt_hi"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
             android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/student_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_hi" />
 
         <Button
             android:id="@+id/bt_hi"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="HI"
+            android:layout_marginTop="200dp"
             android:background="@drawable/drawable_custom_ripple"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="STUDENT ID/NAME"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,12 +40,23 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@drawable/drawable_custom_ripple"
-            android:text="BYE"
+            android:text="IMAGE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_hi"
             app:layout_constraintVertical_bias="0.13999999" />
+
+        <ImageView
+            android:id="@+id/food_image"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/chicken" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

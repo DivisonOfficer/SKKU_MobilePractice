@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.skku.mobilepractice">
+    package="edu.skku.MAP.MyFirstSWPLab3">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobilePractice">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="edu.skku.MAP.MyFirstSWPLab3.activity.MainActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>

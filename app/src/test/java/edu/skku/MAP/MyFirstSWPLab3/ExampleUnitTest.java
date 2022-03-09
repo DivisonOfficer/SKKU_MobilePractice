@@ -1,4 +1,4 @@
-package com.skku.mobilepractice;
+package edu.skku.MAP.MyFirstSWPLab3;
 
 import org.junit.Test;
 
