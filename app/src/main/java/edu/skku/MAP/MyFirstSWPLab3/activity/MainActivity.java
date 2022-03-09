@@ -65,12 +65,19 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    Boolean showImageStatus = false;
+    int showImageStatus = 0;
 
     void setFoodImage()
     {
-        int foodId = showImageStatus ? R.drawable.pizza : R.drawable.chicken;
-        showImageStatus = !showImageStatus;
+        showImageStatus = (showImageStatus + 1)%3;
+        int foodId = 0;
+        switch(showImageStatus)
+        {
+            case 0 : foodId = R.drawable.chicken; break;
+            case 1 : foodId = R.drawable.pizza; break;
+            case 2 : foodId = R.drawable.burger; break;
+        }
+
         foodImage.setImageDrawable(AppCompatResources.getDrawable(this,foodId));
     }
 
