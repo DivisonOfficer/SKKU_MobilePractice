@@ -24,6 +24,12 @@ public class MainListViewAdapter extends BaseAdapter {
 
     public MainListViewAdapter(Context context) {
         this.context = context;
+
+        initDummyData();
+
+    }
+
+    private void initDummyData(){
         listChicken = new ArrayList<ListItem>();
         listChicken.add(new ListItem(R.drawable.logo_chicken_bbq,"BBQ"));
         listChicken.add(new ListItem(R.drawable.logo_chicken_bhc,"BHC"));
@@ -41,8 +47,6 @@ public class MainListViewAdapter extends BaseAdapter {
         listBurger.add(new ListItem(R.drawable.logo_burger_burgerking,"BugerKing"));
         listBurger.add(new ListItem(R.drawable.logo_burger_mcdonalds,"Mcdonalds"));
         listBurger.add(new ListItem(R.drawable.logo_buger_lotteria,"Lotteria"));
-
-
     }
 
     @Override
