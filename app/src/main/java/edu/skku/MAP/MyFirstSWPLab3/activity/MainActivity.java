@@ -2,33 +2,49 @@ package edu.skku.MAP.MyFirstSWPLab3.activity;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
 import edu.skku.MAP.MyFirstSWPLab3.R;
+import edu.skku.MAP.MyFirstSWPLab3.adapter.MainListViewAdapter;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
-    private View.OnClickListener btHiOnClickListener;
-    private View.OnClickListener btByeOnClickListener;
 
-    private Button btHi;
-    private Button btBye;
+
+    private Button btShowSubLayout, btTypeChicken, btTypeBurger, btTypePizza;
     private ImageView foodImage;
     private TextView idTextView;
+
+    private ListView mListView;
+
+    private ViewGroup topLayout;
+    private View topSubLayout;
+
+    private MainListViewAdapter listAdapter;
+
+    private Boolean isSubLayoutInflated = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         initOnClickListener();
 
         initButtonItem();
+
+        initListAdapter();
 
         connectListener();
     }
@@ -39,9 +55,7 @@ public class MainActivity extends BaseActivity {
      */
     void initOnClickListener(){
 
-        btByeOnClickListener = view -> setFoodImage();
 
-        btHiOnClickListener = view -> toggleText();
     }
 
 
@@ -49,10 +63,12 @@ public class MainActivity extends BaseActivity {
      * Layout의 View Item을 Class에 연결해줍니다.
      */
     void initButtonItem(){
-        btHi = findViewById(R.id.bt_hi);
-        btBye = findViewById(R.id.bt_bye);
-        foodImage = findViewById(R.id.food_image);
-        idTextView = findViewById(R.id.textview_id);
+        btShowSubLayout = findViewById(R.id.bt_show_top_layout);
+        topLayout = findViewById(R.id.layout_top);
+        mListView = findViewById(R.id.main_list_view);
+        btTypeBurger = findViewById(R.id.bt_selector_burger);
+        btTypeChicken = findViewById(R.id.bt_selector_chicken);
+        btTypePizza = findViewById(R.id.bt_selector_pizza);
     }
 
 
@@ -60,40 +76,57 @@ public class MainActivity extends BaseActivity {
      * Button Instance에 Listener를 연결해줍니다.
      */
     void connectListener(){
-        btHi.setOnClickListener(btHiOnClickListener);
-        btBye.setOnClickListener(btByeOnClickListener);
+        btShowSubLayout.setOnClickListener(this);
+        btTypePizza.setOnClickListener(this);
+        btTypeChicken.setOnClickListener(this);
+        btTypeBurger.setOnClickListener(this);
+    }
 
+    void initListAdapter(){
+        listAdapter = new MainListViewAdapter(this);
+        mListView.setAdapter(listAdapter);
+        listAdapter.notifyDataSetChanged();
     }
 
     int showImageStatus = 0;
 
-    void setFoodImage()
-    {
-        showImageStatus = (showImageStatus + 1)%3;
-        int foodId = 0;
-        switch(showImageStatus)
-        {
-            case 0 : foodId = R.drawable.chicken; break;
-            case 1 : foodId = R.drawable.pizza; break;
-            case 2 : foodId = R.drawable.burger; break;
-        }
-
-        foodImage.setImageDrawable(AppCompatResources.getDrawable(this,foodId));
-    }
 
     Boolean showTextStatus = false;
 
-    void toggleText()
-    {
-        showTextStatus = !showTextStatus;
-        String text;
-        if(showTextStatus)
+
+    @Override
+    public void onClick(View v) {
+        if(v==btShowSubLayout)
         {
-            text = getString(R.string.student_name);
+            inflateSubLayout();
         }
-        else{
-            text = getString(R.string.student_id);
+        else if(v==btTypeBurger)
+        {
+            changeListType(2);
         }
-        idTextView.setText(text);
+        else if(v==btTypeChicken)
+        {
+            changeListType(0);
+        }
+        else if(v==btTypePizza)
+        {
+            changeListType(1);
+        }
+    }
+
+    private void changeListType(int type)
+    {
+        listAdapter.changeType(type);
+    }
+
+    private void inflateSubLayout(){
+        if(isSubLayoutInflated) return;
+        topSubLayout = LayoutInflater.from(this).inflate(R.layout.layout_sublayout, null);
+        topLayout.addView(topSubLayout);
+        ViewGroup.LayoutParams params = topSubLayout.getLayoutParams();
+        params.width = 1000;
+        topSubLayout.setLayoutParams(params);
+        isSubLayoutInflated = true;
+
     }
 }
