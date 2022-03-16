@@ -1,17 +1,15 @@
 package edu.skku.MAP.MyFirstSWPLab3.activity;
 
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import androidx.appcompat.content.res.AppCompatResources;
 
 import edu.skku.MAP.MyFirstSWPLab3.R;
 import edu.skku.MAP.MyFirstSWPLab3.adapter.MainListViewAdapter;
@@ -38,11 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        initOnClickListener();
-
-        initButtonItem();
+        initViewValues();
 
         initListAdapter();
 
@@ -51,18 +45,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     /**
-     * OnClickListener를 정의해줍니다.
-     */
-    void initOnClickListener(){
-
-
-    }
-
-
-    /**
      * Layout의 View Item을 Class에 연결해줍니다.
      */
-    void initButtonItem(){
+    void initViewValues(){
         btShowSubLayout = findViewById(R.id.bt_show_top_layout);
         topLayout = findViewById(R.id.layout_top);
         mListView = findViewById(R.id.main_list_view);
@@ -82,18 +67,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btTypeBurger.setOnClickListener(this);
     }
 
+    /**
+     * ListView의 Adapter를 선언해줍니다.
+     */
     void initListAdapter(){
         listAdapter = new MainListViewAdapter(this);
         mListView.setAdapter(listAdapter);
         listAdapter.notifyDataSetChanged();
     }
 
-    int showImageStatus = 0;
 
-
-    Boolean showTextStatus = false;
-
-
+    /**
+     * OnClickListener를 지정해줍니다.
+     * @param v : 눌러진 뷰
+     */
     @Override
     public void onClick(View v) {
         if(v==btShowSubLayout)
@@ -114,17 +101,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    /**
+     * Adapter의 데이터 자료를 바꿔줍니다.
+     * @param type : 0 chicken 1 pizza 2 burger
+     */
     private void changeListType(int type)
     {
         listAdapter.changeType(type);
     }
 
+    /**
+     * SubLayout을 추가해줍니다.
+     */
     private void inflateSubLayout(){
         if(isSubLayoutInflated) return;
         topSubLayout = LayoutInflater.from(this).inflate(R.layout.layout_sublayout, null);
         topLayout.addView(topSubLayout);
         ViewGroup.LayoutParams params = topSubLayout.getLayoutParams();
-        params.width = 1000;
+        params.width = Resources.getSystem().getDisplayMetrics().widthPixels;
         topSubLayout.setLayoutParams(params);
         isSubLayoutInflated = true;
 
