@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import edu.skku.MAP.MyFirstSWPLab3.R;
 import edu.skku.MAP.MyFirstSWPLab3.adapter.MainListViewAdapter;
 
@@ -18,6 +20,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
 
+private ArrayList<MainListViewAdapter.ListItem> listChicken, listPizza, listBurger;
 
     private Button btShowSubLayout, btTypeChicken, btTypeBurger, btTypePizza;
     private ImageView foodImage;
@@ -28,7 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ViewGroup topLayout;
     private View topSubLayout;
 
-    private MainListViewAdapter listAdapter;
+    private MainListViewAdapter adapterChicken, adapterPizza, adapterBurger;
 
     private Boolean isSubLayoutInflated = false;
     @Override
@@ -37,6 +40,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         initViewValues();
+
+        initList();
 
         initListAdapter();
 
@@ -56,7 +61,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btTypePizza = findViewById(R.id.bt_selector_pizza);
     }
 
+    void initList(){
+        listChicken = new ArrayList<MainListViewAdapter.ListItem>();
+        listChicken.add(new MainListViewAdapter.ListItem(R.drawable.logo_chicken_bbq,"BBQ"));
+        listChicken.add(new MainListViewAdapter.ListItem(R.drawable.logo_chicken_bhc,"BHC"));
+        listChicken.add(new MainListViewAdapter.ListItem(R.drawable.logo_chicken_goobne,"Goobne Chicken"));
+        listChicken.add(new MainListViewAdapter.ListItem(R.drawable.logo_pizzaandchicken,"Pizza Kingdom Chicken Princess"));
+        listChicken.add(new MainListViewAdapter.ListItem(R.drawable.logo_burger_monstouch,"Mon's Touch"));
 
+        listPizza = new ArrayList<MainListViewAdapter.ListItem>();
+        listPizza.add(new MainListViewAdapter.ListItem(R.drawable.logo_pizzaandchicken,"Pizza Kingdom Chicken Princess"));
+        listPizza.add(new MainListViewAdapter.ListItem(R.drawable.logo_pizza_pizzahut,"PizzaHut"));
+        listPizza.add(new MainListViewAdapter.ListItem(R.drawable.logo_pizza_domino,"Domino"));
+
+        listBurger = new ArrayList<MainListViewAdapter.ListItem>();
+        listBurger.add(new MainListViewAdapter.ListItem(R.drawable.logo_burger_monstouch,"Mon's Touch"));
+        listBurger.add(new MainListViewAdapter.ListItem(R.drawable.logo_burger_burgerking,"BugerKing"));
+        listBurger.add(new MainListViewAdapter.ListItem(R.drawable.logo_burger_mcdonalds,"Mcdonalds"));
+        listBurger.add(new MainListViewAdapter.ListItem(R.drawable.logo_buger_lotteria,"Lotteria"));
+    }
     /**
      * Button Instance에 Listener를 연결해줍니다.
      */
@@ -71,9 +94,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * ListView의 Adapter를 선언해줍니다.
      */
     void initListAdapter(){
-        listAdapter = new MainListViewAdapter(this);
-        mListView.setAdapter(listAdapter);
-        listAdapter.notifyDataSetChanged();
+        adapterChicken = new MainListViewAdapter(this);
+        adapterChicken.setItem(listChicken);
+        adapterBurger = new MainListViewAdapter(this);
+        adapterBurger.setItem(listBurger);
+        adapterPizza = new MainListViewAdapter(this);
+        adapterPizza.setItem(listPizza);
+        mListView.setAdapter(adapterChicken);
     }
 
 
@@ -89,15 +116,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         else if(v==btTypeBurger)
         {
-            changeListType(2);
+            mListView.setAdapter(adapterBurger);
         }
         else if(v==btTypeChicken)
         {
-            changeListType(0);
+            mListView.setAdapter(adapterChicken);
         }
         else if(v==btTypePizza)
         {
-            changeListType(1);
+            mListView.setAdapter(adapterPizza);
         }
     }
 
@@ -105,10 +132,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * Adapter의 데이터 자료를 바꿔줍니다.
      * @param type : 0 chicken 1 pizza 2 burger
      */
-    private void changeListType(int type)
-    {
-        listAdapter.changeType(type);
-    }
 
     /**
      * SubLayout을 추가해줍니다.
