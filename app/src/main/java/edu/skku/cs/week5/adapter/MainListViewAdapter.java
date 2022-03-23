@@ -1,4 +1,4 @@
-package edu.skku.MAP.MyFirstSWPLab3.adapter;
+package edu.skku.cs.week5.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,7 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import java.util.ArrayList;
 
-import edu.skku.MAP.MyFirstSWPLab3.R;
+import edu.skku.cs.week5.R;
 
 public class MainListViewAdapter extends BaseAdapter {
     public ArrayList<ListItem> items;

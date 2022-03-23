@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.skku.MAP.MyFirstSWPLab3">
+    package="edu.skku.cs.week5">
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -10,14 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobilePractice">
         <activity
-            android:name="edu.skku.MAP.MyFirstSWPLab3.activity.MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:name="edu.skku.cs.week5.activity.alarmapp.MakeAlarmActivity"
+            android:exported="false" />
+        <activity
+            android:name="edu.skku.cs.week5.activity.alarmapp.AlarmInputActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="edu.skku.cs.week5.activity.MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

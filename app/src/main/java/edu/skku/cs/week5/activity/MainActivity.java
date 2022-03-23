@@ -1,4 +1,4 @@
-package edu.skku.MAP.MyFirstSWPLab3.activity;
+package edu.skku.cs.week5.activity;
 
 
 import android.content.res.Resources;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import edu.skku.MAP.MyFirstSWPLab3.R;
-import edu.skku.MAP.MyFirstSWPLab3.adapter.MainListViewAdapter;
+import edu.skku.cs.week5.R;
+import edu.skku.cs.week5.adapter.MainListViewAdapter;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

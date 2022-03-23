@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.skku.MAP.MyFirstSWPLab3.activity.MainActivity">
+    tools:context="edu.skku.cs.week5.activity.MainActivity">
     <!-- Will be desecrated and replaced by DataBinding-->
 
 

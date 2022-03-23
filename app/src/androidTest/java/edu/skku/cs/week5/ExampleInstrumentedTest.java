@@ -1,4 +1,4 @@
-package edu.skku.MAP.MyFirstSWPLab3;
+package edu.skku.cs.week5;
 
 import android.content.Context;
 
