@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity.alarmapp;
+package edu.skku.cs.designpattern.activity.alarmapp;
 
 import androidx.core.app.ActivityCompat;
 
@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import java.util.Date;
 
-import edu.skku.cs.week5.R;
-import edu.skku.cs.week5.activity.BaseActivity;
+import edu.skku.cs.designpattern.R;
+import edu.skku.cs.designpattern.activity.BaseActivity;
 
 public class MakeAlarmActivity extends BaseActivity implements View.OnClickListener {
 

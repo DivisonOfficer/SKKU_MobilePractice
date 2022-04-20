@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity.apiapp;
+package edu.skku.cs.designpattern.activity.apiapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
-import edu.skku.cs.week5.R;
+import edu.skku.cs.designpattern.R;
 
 public class ApiMainActivity extends AppCompatActivity implements View.OnClickListener {
 

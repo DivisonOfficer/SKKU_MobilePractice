@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity.handerapp;
+package edu.skku.cs.designpattern.activity.handerapp;
 
 import android.os.Handler;
 import android.os.Message;

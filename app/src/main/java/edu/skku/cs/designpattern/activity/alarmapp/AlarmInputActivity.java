@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity.alarmapp;
+package edu.skku.cs.designpattern.activity.alarmapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import edu.skku.cs.week5.R;
-import edu.skku.cs.week5.activity.BaseActivity;
+import edu.skku.cs.designpattern.R;
+import edu.skku.cs.designpattern.activity.BaseActivity;
 
 public class AlarmInputActivity extends BaseActivity implements View.OnClickListener {
 

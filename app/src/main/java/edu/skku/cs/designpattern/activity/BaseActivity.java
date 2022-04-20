@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity;
+package edu.skku.cs.designpattern.activity;
 
 import android.widget.Toast;
 

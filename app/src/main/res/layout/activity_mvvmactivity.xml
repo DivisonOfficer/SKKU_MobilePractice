@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.mvvm.MVVMActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="edu.skku.cs.designpattern.activity.mvvm.MVVMActivity"/>
+        <import type="edu.skku.cs.designpattern.activity.mvvm.MVVMViewModel"/>
+
+        <variable
+            name="activity"
+            type="MVVMActivity" />
+        <variable
+            name="viewModel"
+            type="edu.skku.cs.designpattern.activity.mvvm.MVVMViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:allowUndo="false"
+            android:onClick="@{()->activity.onButtonClick()}"
+            android:text="@{viewModel.valueString}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

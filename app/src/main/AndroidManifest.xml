@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.skku.cs.week5">
+    package="edu.skku.cs.designpattern">
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +12,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.MobilePractice">
+        android:theme="@style/Theme.MobilePractice"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.apiapp.ApiMainActivity"
+            android:name="edu.skku.cs.designpattern.activity.mvvm.MVVMActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,22 +24,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.handerapp.MainActivity"
+            android:name="edu.skku.cs.designpattern.activity.apiapp.ApiMainActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".activity.alarmapp.MakeAlarmActivity"
+            android:name="edu.skku.cs.designpattern.activity.handerapp.MainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name="edu.skku.cs.designpattern.activity.alarmapp.MakeAlarmActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.alarmapp.AlarmInputActivity"
+            android:name="edu.skku.cs.designpattern.activity.alarmapp.AlarmInputActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="edu.skku.cs.designpattern.activity.MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

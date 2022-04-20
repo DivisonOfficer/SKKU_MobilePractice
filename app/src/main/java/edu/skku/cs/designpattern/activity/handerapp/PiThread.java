@@ -1,10 +1,8 @@
-package edu.skku.cs.week5.activity.handerapp;
+package edu.skku.cs.designpattern.activity.handerapp;
 
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
-
-import java.util.Random;
 
 public class PiThread extends Thread{
     float ratio = 0f;

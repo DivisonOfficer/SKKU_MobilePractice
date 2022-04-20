@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity.apiapp;
+package edu.skku.cs.designpattern.activity.apiapp;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,8 +7,7 @@ import androidx.annotation.NonNull;
 
 import java.io.IOException;
 
-import edu.skku.cs.week5.R;
-import edu.skku.cs.week5.activity.handerapp.MainActivity;
+import edu.skku.cs.designpattern.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;

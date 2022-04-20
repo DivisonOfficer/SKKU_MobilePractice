@@ -1,15 +1,12 @@
-package edu.skku.cs.week5.activity.handerapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package edu.skku.cs.designpattern.activity.handerapp;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import edu.skku.cs.week5.R;
-import edu.skku.cs.week5.activity.BaseActivity;
+import edu.skku.cs.designpattern.R;
+import edu.skku.cs.designpattern.activity.BaseActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

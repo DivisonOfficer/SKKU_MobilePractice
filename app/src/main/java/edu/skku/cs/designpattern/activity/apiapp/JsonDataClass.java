@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.activity.apiapp;
+package edu.skku.cs.designpattern.activity.apiapp;
 
 public class JsonDataClass {
     public String Title;

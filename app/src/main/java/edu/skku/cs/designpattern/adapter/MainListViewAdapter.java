@@ -1,4 +1,4 @@
-package edu.skku.cs.week5.adapter;
+package edu.skku.cs.designpattern.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,7 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import java.util.ArrayList;
 
-import edu.skku.cs.week5.R;
+import edu.skku.cs.designpattern.R;
 
 public class MainListViewAdapter extends BaseAdapter {
     public ArrayList<ListItem> items;

@@ -1,4 +1,4 @@
-package edu.skku.cs.week5;
+package edu.skku.cs.designpattern;
 
 import android.content.Context;
 
